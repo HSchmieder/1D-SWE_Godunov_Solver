@@ -34,8 +34,8 @@ switch(BC_type)
             fct_BCriemann = [];
         end
     case(4) % classic river flow B.C.
-            % Inflow (R): h: von Neuman; hu: Dirichlet hu=f(t)
-            % Outflow (L): h: Dirichlet h=f(t); hu: von Neuman
+            % Inflow (L): \partial_x h(xL,t)=0 , hu(xL,t)=fct_dirichletL(t)
+            % Outflow (R): h(xR,t)=fct_dirichletR(t) , \partial_x hu(xR,t)=0
         if spatialscheme == "ENO3" || spatialscheme == "WENO5"
             fct_BCghostcells = @(q,t) [[q(1,1), q(1,1); fct_dirichletL(t), fct_dirichletL(t)], q, [fct_dirichletR(t), fct_dirichletR(t); q(2,end), q(2,end)]];
             fct_BCriemann = @(q_aug,~,~) [q_aug(:,1), q_aug(:,end)];
@@ -46,8 +46,8 @@ switch(BC_type)
             fct_BCghostcells = @(q,t) [[q(1,1); fct_dirichletL(t)], q, [fct_dirichletR(t); q(2,end)]];
             fct_BCriemann = [];
         end
-    case(5) % Inflow (R): h: Dirichlet hu=f(t); hu: von Neuman
-            % Outflow (L): h: von Neuman; hu: von Neuman
+    case(5) % Inflow (L): h(xL,t) = fct_dirichletL(t) , \partial_x hu(xL,t)=0
+            % Outflow (R): \partial_x h(xR,t)=0 , \partial_x hu(xR,t)=0
         if spatialscheme == "ENO3" || spatialscheme == "WENO5"
             fct_BCghostcells = @(q,t) [[fct_dirichletL(t), fct_dirichletL(t); q(2,1), q(2,1)], q, q(:,end), q(:,end)];
             fct_BCriemann = @(q_aug,~,~) [q_aug(:,1), q_aug(:,end)];

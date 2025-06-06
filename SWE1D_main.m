@@ -1,12 +1,11 @@
-%% 1D SWE solver
+%% 1D SWE Godunov solver
 % TO DO
-% CFL crit dependent on scheme
 % Roe approximation
 
 clc; clear;  close all;
 
 %% Numerical Setting
-nx = 20e2+1;              % number of cells
+nx = 20e2+1;            % number of cells
 iter_max = 1e5;         % max number of time steps
 CFL = 0.25;              
 % available spatial schemes: 
@@ -25,19 +24,12 @@ fct_timeint = get_timeintegrator(set_timeintegrator);
 
 %% Load Case
 % define or chose case in get_case.m file
-set_case = 9; 
+set_case = 1; 
 [g, t, tend, dx, xL, xR, xcenter, q, b, fct_source, BC_type, fct_dirichletL, fct_dirichletR] = get_case(nx, set_case);
 [fct_BCghost, fct_BCriemann] = get_BC(BC_type,set_spatialscheme,fct_dirichletL,fct_dirichletR);
 
-%% store results
-store = 'n';
-if store == 'y'
-    Q1 = q(1,:); Q2 = q(2,:);
-    T = zeros(1,nx);
-end
-
 %% Solve
-for n=1:iter_max
+for n=0:iter_max
     % set dt 
     smax = max(fct_eigenvalues(q,g),[],'all');
     dt = dx*CFL/smax;
@@ -54,12 +46,8 @@ for n=1:iter_max
     % update variables
     q = qnew;
     t = t + dt;
-    if store == 'y'
-        Q1(end+1,:) = q(1,:); Q2(end+1,:)=q(2,:);
-        T(end+1,:) = t;
-    end
 
-    % plot 
+    % plot every 100th time step
     if mod(n,100) == 0
         subplot(2,1,1); plot(xcenter,q(1,:)+b, xcenter, b)
         xlim([xL,xR]); ylabel('waterlevel h')
@@ -75,6 +63,6 @@ end
 % final plot
 subplot(2,1,1); plot(xcenter,q(1,:)+b, xcenter, b.*ones(1,nx))
 xlim([xL,xR]); ylabel('waterlevel h')
-subplot(2,1,2); plot(xcenter,q(2,:)./q(1,:))
+subplot(2,1,2); plot(xcenter,q(2,:))
 xlim([xL,xR]); ylabel('momentum hu')
 sgtitle(sprintf('time = %f',t))

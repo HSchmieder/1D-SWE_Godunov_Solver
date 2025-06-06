@@ -78,7 +78,7 @@ function dfdx = fct_muscl(q,t,dx,~,g, fct_rs, fct_BCghost, fct_BCriemann)
     % expand by ghost cells for boundary treatment
     q_aug = fct_BCghost(q,t);
     
-    % calculate polynomial constants p(z)=a0*z + a1 (z=x-x_i)
+    % calculate polynomial constants p(z)=a0*z + a1 where z=x-x_i
     a1 = q; % a1 is q_i for cell i for both stencils
     % stencil 1: i-1, i
     a01 = (q_aug(:,2:end-1)-q_aug(:,1:end-2))/dx;
@@ -114,7 +114,7 @@ function dfdx = fct_weno3(q,t,dx,~,g, fct_rs, fct_BCghost, fct_BCriemann)
     % expand by ghost cells for boundary treatment
     q_aug = fct_BCghost(q,t);
     
-    % calculate polynomial constants p(z)=a0*z + a1 (z=x-x_i)
+    % calculate polynomial constants p(z)=a0*z + a1 where z=x-x_i
     a1 = q; % a1 is q_i for cell i for both stencils
     % stencil 1: i-1, i
     a01 = (q_aug(:,2:end-1)-q_aug(:,1:end-2))/dx;
@@ -165,7 +165,7 @@ function dfdx = fct_eno3(q,t,dx,~,g, fct_rs, fct_BCghost, fct_BCriemann)
     % ghost cells for boundary treatment
     q_aug = fct_BCghost(q,t);
     
-    % calculate polynomial constants p(z)=a0*z^2+a1*z+a0 (z = x- x_{center})
+    % calculate polynomial constants p(z)=a0*z^2+a1*z+a0 where z = x- x_{center}
     a0 = zeros([3, nVar, nCell]);
     a1 = a0; a2 = a0; IS = a0;
     % stencil 1: i-2,i-1,i, (x_{center} = x_{i-1})
