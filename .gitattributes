@@ -1,0 +1,14 @@
+# Treat all .mat files as binary
+*.mat binary
+
+# Treat all .fig files as binary
+*.fig binary
+
+# Treat Simulink model files as binary
+*.mdl binary
+*.slx binary
+
+# Treat all compiled MEX files as binary (for Windows, Linux, macOS)
+*.mexw64 binary
+*.mexa64 binary
+*.mexmaci64 binary
