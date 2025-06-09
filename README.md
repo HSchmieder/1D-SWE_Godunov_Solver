@@ -3,14 +3,9 @@
 # 1D-SWE_Godunov_Solver
 
 This code solves the 1D shallow water equations using a semi-discrete finite volume scheme of Godunov-type.  
-[mass](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20t%7D%20&plus;%20%5Cfrac%7B%5Cpartial%20(hu)%7D%7B%5Cpartial%20x%7D%20%3D%200)
+![mass conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+t%7D+h+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D+hu+%3D+0)
 
-![momentum](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%20(hu)%7D%7B%5Cpartial%20t%7D%20&plus;%20%5Cfrac%7B%5Cpartial%7Bhu%5E2%7D%7D%7B%5Cpartial%20x%7D%20&plus;%20%5Cfrac%7B1%7D%7B2%7Dgh%5E2%20%3D%20%5Cleft(-gh%20%5Cfrac%7B%5Cpartial%20b%7D%7B%5Cpartial%20x%7D%20&plus;%20S_f%5Cright))
-
-$$
-\frac{\partial}{\partial t} h + \frac{\partial}{\partial x} hu = 0
-$$
-$ \frac{\partial}{\partial t} hu + \frac{\partial}{\partial x} hu^2 + \frac{1}{2} gh^2 = \left( -gh \frac{\partial}{\partial x} b + S_f \right) $
+![momentum conservation](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+t%7D+hu+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D%5CBigl%28+hu%5E2+%2B+%5Ctfrac%7B1%7D%7B2%7D%5C%2Cgh%5E2%5CBigr%29+%3D+-gh%5C%2C%5Cfrac%7B%5Cpartial+b%7D%7B%5Cpartial+x%7D+%2B+Sf)
 
 In the SWE1D_main.m file one can set the numerical settings (number of cells: nx, CFL-number: CFL), load a case from get_case.m (set_case) and chose between different Godunov-fluxes (set_spatialscheme), approximate Riemann solvers (set_riemann) and time-integratior (set_timeintegrator).
 
