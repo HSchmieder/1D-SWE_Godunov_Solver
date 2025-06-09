@@ -3,6 +3,8 @@
 # 1D-SWE_Godunov_Solver
 
 This code solves the 1D shallow water equations using a semi-discrete finite volume scheme of Godunov-type.  
+'''math
+\frac{\partial}{\partial t} h + \frac{\partial}{\partial x} hu = 0
 $$
 \frac{\partial}{\partial t} h + \frac{\partial}{\partial x} hu = 0
 $$
@@ -15,9 +17,9 @@ Lax-Friedrichs: LAXFR
 Lax-Wendroff: LAXWE  
 FORCE: FORCE  
 2nd-order monotonic upstream- centered scheme for conservation laws with minmod slope-limiter: MUSCL  
-3rd order essentially non-oscillatory with oscillation indicator (Jiang Shu 1996): ENO3  
-3rd order weighted essentially non-oscillatory with oscillation indicator (Jiang Shu 1996):WENO3  
-5th order weigthed essentially non-oscillatory with oscillation indicator (Jiang Shu 1996): WENO5  
+3rd order essentially non-oscillatory with oscillation indicator (Jiang and Shu 1996): ENO3  
+3rd order weighted essentially non-oscillatory with oscillation indicator (Jiang and Shu 1996):WENO3  
+5th order weigthed essentially non-oscillatory with oscillation indicator (Jiang and Shu 1996): WENO5  
   
 __Approximate Riemann solver:__  
 Rusanov: RUS  
