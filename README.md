@@ -4,7 +4,7 @@
 
 This code solves the 1D shallow water equations using a semi-discrete finite volume scheme of Godunov-type.
 
-$ \frac{\partial}{\partial t} h + \frac{\partial}{\partial x} hu = 0 $
+$$ \frac{\partial}{\partial t} h + \frac{\partial}{\partial x} hu = 0 $$
 $ \frac{\partial}{\partial t} hu + \frac{\partial}{\partial x} hu^2 + \frac{1}{2} gh^2 = \left( -gh \frac{\partial}{\partial x} b + S_f \right) $
 
 In the SWE1D_main.m file one can set the numerical settings (number of cells: nx, CFL-number: CFL), load a case from get_case.m (set_case) and chose between different Godunov-fluxes (set_spatialscheme), approximate Riemann solvers (set_riemann) and time-integratior (set_timeintegrator).
