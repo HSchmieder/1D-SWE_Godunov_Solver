@@ -3,7 +3,7 @@
 # 1D-SWE_Godunov_Solver
 
 This code solves the 1D shallow water equations using a semi-discrete finite volume scheme of Godunov-type.  
-![mass conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartialt%7D+h+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D+hu+%3D+0)
+![mass conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%t%7D+h+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D+hu+%3D+0)
 
 ![momentum conservation](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+t%7D+hu+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D%5CBigl%28+hu%5E2+%2B+%5Ctfrac%7B1%7D%7B2%7D%5C%2Cgh%5E2%5CBigr%29+%3D+-gh%5C%2C%5Cfrac%7B%5Cpartial+b%7D%7B%5Cpartial+x%7D+%2B+Sf)
 
