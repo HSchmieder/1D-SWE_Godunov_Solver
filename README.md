@@ -3,9 +3,13 @@
 # 1D-SWE_Godunov_Solver
 
 This code solves the 1D shallow water equations using a semi-discrete finite volume scheme of Godunov-type.  
-![mass conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%t%7D+h+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D+hu+%3D+0)
+# 1D-SWE Godunov Solver
 
-![momentum conservation](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+t%7D+hu+%2B+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+x%7D%5CBigl%28+hu%5E2+%2B+%5Ctfrac%7B1%7D%7B2%7D%5C%2Cgh%5E2%5CBigr%29+%3D+-gh%5C%2C%5Cfrac%7B%5Cpartial+b%7D%7B%5Cpartial+x%7D+%2B+Sf)
+This code solves the 1D shallow water equations.
+
+![mass conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D%20h%20%2B%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%20h%20u%20%3D%200)
+
+![momentum conservation:](https://latex.codecogs.com/svg.image?%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20t%7D%20h%20u%20%2B%20%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial%20x%7D%5CBigl%28h%20u%5E2%20%2B%20%5Ctfrac%7B1%7D%7B2%7D%5C%2Cg%20h%5E2%5CBigr%29%20%3D%20-g%20h%5C%2C%5Cfrac%7B%5Cpartial%20b%7D%7B%5Cpartial%20x%7D%20%2B%20S_f)
 
 In the SWE1D_main.m file one can set the numerical settings (number of cells: nx, CFL-number: CFL), load a case from get_case.m (set_case) and chose between different Godunov-fluxes (set_spatialscheme), approximate Riemann solvers (set_riemann) and time-integratior (set_timeintegrator).
 
